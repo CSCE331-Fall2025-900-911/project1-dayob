@@ -1,54 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Dayo's Service</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
+    <div class="main-container">
+        <header class="header">
+            <h1>🎪 SERVICE AREA 🎪</h1>
+            <div class="visitor-counter">
+                COMMUNITY CONNECTION ESTABLISHED... CLUBS LOADED ✓
+            </div>
+            <div class="marquee">
+                <span>🌟 Leadership, community, and making a difference! 🌟 Join the movement! 🌟</span>
+            </div>
+        </header>
+
         <nav>
-            <a href="index.html">Home</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="qualifications.html">Qualifications</a>
-            <a href="service.html">Service</a>
-            <a href="genai.html">GenAI</a>
+            <a href="index.html">HOME</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="qualifications.html">QUALIFICATIONS</a>
+            <a href="service.html">SERVICE</a>
+            <a href="genai.html">GENAI</a>
         </nav>
-    </header>
 
-    <main>
-        <h1>Dayo's Clubs</h1>
+        <div class="content-wrapper">
+            <main class="main-content">
+                <div class="about-section">
+                    <h2>Service:</h2>
+                </div>
 
-        <div class="service" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>TAMU Datathon</h2>
-            <p><strong>Position:</strong> President (Former Developer)</p>
-            <p><strong>Duration:</strong> January 2024 - Present</p>
-            <p><strong>Description:</strong> TAMU Datathon is a collegiate hackathon that brings together 500+ students to work on data science and technology challenges. The event fosters collaboration, innovation, and high execution standards in the data science community.</p>
-            <p><strong>Activities:</strong> Leading a 40-person cross-functional team across development, logistics, design, outreach, and challenges. Managing day-of operations and driving overall strategy for the event. Previously built core features for the event platform including applications, scheduling, check-in, and automated emailing systems.</p>
-            <p><strong>Contributions:</strong> Successfully organized and executed large-scale hackathon events, developed key technical infrastructure for the platform, and guided team leads to ensure seamless execution. Transitioned from developer role to president, demonstrating leadership growth and technical expertise.</p>
+                <div class="retro-box box-orange">
+                    <h2>🏆 TAMU DATATHON</h2>
+                    <p><strong>Position:</strong> President (Former Developer)</p>
+                    <p><strong>Duration:</strong> January 2024 - Present</p>
+                    <p><strong>What We Do:</strong> TAMU Datathon is a collegiate hackathon that brings together 500+
+                        students to work on data science and technology challenges. We focus on fostering collaboration
+                        and maintaining high execution standards.</p>
+                    <p><strong>My Role:</strong> I lead a 40-person cross-functional team across development, logistics,
+                        design, outreach, and challenges. I drive overall strategy, guide team leads, and manage day-of
+                        operations to ensure seamless execution. I also built core features for the event platform,
+                        including applications, scheduling, check-in, and automated emailing.</p>
+                    <p><strong>Impact:</strong> Successfully organized a 500+ attendee collegiate hackathon and
+                        developed key technical infrastructure for the platform. Progressed from developer role to
+                        president position.</p>
+                </div>
+
+                <div class="retro-box box-blue">
+                    <h2>🌟 COLORSTACK</h2>
+                    <p><strong>Position:</strong> Member</p>
+                    <p><strong>Duration:</strong> August 2024 - Present</p>
+                    <p><strong>What We Do:</strong> ColorStack is a nonprofit dedicated to increasing the number of
+                        Black and Latinx computer science graduates who enter high-growth, high-impact tech careers.</p>
+                    <p><strong>My Involvement:</strong> I participate in networking events, mentorship programs, and
+                        professional development workshops. It's amazing to connect with other underrepresented students
+                        in tech and share experiences.</p>
+                    <p><strong>Impact:</strong> Being part of this community has been incredible for both personal
+                        growth and helping others navigate their tech journey. Diversity in tech isn't just important -
+                        it's one of the most important aspects of the industry.</p>
+                </div>
+
+                <div class="retro-box box-red">
+                    <h2>🤖 AI4ALL IGNITE</h2>
+                    <p><strong>Position:</strong> Scholar</p>
+                    <p><strong>Duration:</strong> January 2024 - July 2024</p>
+                    <p><strong>What It Was:</strong> AI4ALL Ignite provides mentorship, community, and opportunities for
+                        underrepresented students pursuing AI and machine learning. Perfect timing (Shedeur Sanders
+                        reference ⌚️⚡️) because of the AI Boom and my interests in AI</p>
+                    <p><strong>My Experience:</strong> Participated in mentorship sessions, attended workshops on AI
+                        ethics and applications, and collaborated with other scholars on AI projects and research. The
+                        focus on responsible AI development was eye-opening.</p>
+                    <p><strong>Learning:</strong> Gained valuable insights into ethical AI development and contributed
+                        to important discussions about diversity and responsibility in artificial intelligence. AI
+                        should work for everyone! 🌍</p>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="buddy">
+                    <h3>🤖 COMMUNITY BUDDY</h3>
+                    <p id="buddyMessage">Leadership isn't just about being in charge - it's about lifting others up and
+                        creating opportunities for everyone to succeed! 💪</p>
+                    <button onclick="getLeadershipTip()">GET LEADERSHIP TIP!</button>
+                </div>
+
+                <div class="music-player">
+                    <h3>🎵 MOTIVATION MUSIC</h3>
+                    <div class="now-playing">♪ BABY I'M BACK - The Kid LAROI ♪</div>
+                    <div style="color: #00ff00; font-size: 10px; margin-top: 5px;">
+                        ███████░░░ 70%
+                    </div>
+                </div>
+
+                <div class="guest-book">
+                    <h3>💪 LEADERSHIP CHAT</h3>
+                    <p style="color: #ffff00; font-size: 12px;">Want to get involved or have questions about leadership?
+                    </p>
+                    <textarea id="leadershipMessage" placeholder="Share your thoughts..."></textarea>
+                    <button onclick="submitLeadershipNote()">LET'S TALK!</button>
+                    <div class="retro-scroll" id="leadershipEntries"
+                        style="margin-top: 10px; color: #00ff00; font-size: 12px;">
+                        <div>🚀 Ashley: "How do you manage such a big team?"</div>
+                        <div>💡 Noah: "Tips for starting a club?"</div>
+                        <div>🌟 Paul: "Leadership inspiration!"</div>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(255, 255, 0, 0.1); border: 2px solid #ffff00; border-radius: 10px; padding: 15px; margin-top: 15px;">
+                    <h3
+                        style="color: #ffff00; margin: 0 0 10px 0; font-family: 'Press Start 2P', cursive; font-size: 10px;">
+                        🎯 QUICK STATS</h3>
+                    <div style="color: #ffffff; font-size: 12px;">
+                        <div>👥 40+ Team Members Led</div>
+                        <div>🎪 500+ Event Attendees</div>
+                        <div>💻 Multiple Platforms Built</div>
+                        <div>🌟 3+ Communities Active In</div>
+                    </div>
+                </div>
+            </aside>
         </div>
+    </div>
 
-        <div class="service" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>ColorStack</h2>
-            <p><strong>Position:</strong> Member</p>
-            <p><strong>Duration:</strong> August 2024 - Present</p>
-            <p><strong>Description:</strong> ColorStack is a nonprofit organization that works to increase the number of Black and Latinx computer science graduates who enter high-growth, high-impact careers in technology.</p>
-            <p><strong>Activities:</strong> Participating in networking events, mentorship programs, and professional development workshops focused on career advancement in technology.</p>
-            <p><strong>Contributions:</strong> Engaging with the community to support diversity and inclusion in tech, sharing experiences and knowledge with fellow members.</p>
-        </div>
+    <script>
+        const leadershipTips = [
+            "Leading TAMU Datathon taught me that great teams make great events! 👥",
+            "The best leaders listen more than they talk! 👂",
+            "Every failure is just a learning opportunity in disguise! 📚",
+            "Building inclusive communities starts with being inclusive yourself! 🌈",
+            "Technical skills + leadership skills = unstoppable combo! 💪",
+            "ColorStack showed me the power of representation in tech! ✊",
+            "AI4ALL taught me that innovation should benefit everyone! 🌍",
+            "From developer to president - growth never stops! 📈"
+        ];
 
-        <div class="service" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>AI4ALL Ignite</h2>
-            <p><strong>Position:</strong> Scholar</p>
-            <p><strong>Duration:</strong> January 2024 - July 2024</p>
-            <p><strong>Description:</strong> AI4ALL Ignite is a program that provides mentorship, community, and opportunities for underrepresented students pursuing AI and machine learning.</p>
-            <p><strong>Activities:</strong> Participated in mentorship sessions, attended workshops on AI ethics and applications, and collaborated with other scholars on AI projects and research.</p>
-            <p><strong>Contributions:</strong> Gained valuable insights into responsible AI development and contributed to discussions on diversity and ethics in artificial intelligence.</p>
-        </div>
+        function getLeadershipTip() {
+            const randomTip = leadershipTips[Math.floor(Math.random() * leadershipTips.length)];
+            document.getElementById('buddyMessage').innerHTML = randomTip;
+        }
 
-    </main>
+        function submitLeadershipNote() {
+            const messageInput = document.getElementById('leadershipMessage');
+            const message = messageInput.value.trim();
+
+            if (message) {
+                const leadershipEntries = document.getElementById('leadershipEntries');
+                const newEntry = document.createElement('div');
+                const icons = ['🚀', '💡', '🌟', '💪', '🎯', '✨'];
+                const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+                newEntry.innerHTML = `${randomIcon} Visitor: "${message}"`;
+                leadershipEntries.insertBefore(newEntry, leadershipEntries.firstChild);
+                messageInput.value = '';
+
+                // Buddy reaction
+                setTimeout(() => {
+                    document.getElementById('buddyMessage').innerHTML = `I love talking about leadership and community building! Thanks for sharing your thoughts! 🙌`;
+                }, 500);
+            }
+        }
+
+        // Auto-rotate leadership tips
+        setInterval(() => {
+            getLeadershipTip();
+        }, 22000);
+
+        // Add interactive effects
+        document.querySelectorAll('.retro-box').forEach(box => {
+            box.addEventListener('mouseenter', () => {
+                box.style.transform = 'translateY(-3px) scale(1.01)';
+            });
+
+            box.addEventListener('mouseleave', () => {
+                box.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add some sparkle effects on hover
+        document.querySelectorAll('.retro-box').forEach(box => {
+            box.addEventListener('click', () => {
+                // Create a little celebration effect
+                const celebration = document.createElement('div');
+                celebration.innerHTML = '✨';
+                celebration.style.cssText = `
+                    position: absolute;
+                    font-size: 20px;
+                    pointer-events: none;
+                    animation: fade 2s linear forwards;
+                    left: ${Math.random() * box.offsetWidth}px;
+                    top: ${Math.random() * box.offsetHeight}px;
+                `;
+                box.style.position = 'relative';
+                box.appendChild(celebration);
+
+                setTimeout(() => {
+                    celebration.remove();
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 
 </html>

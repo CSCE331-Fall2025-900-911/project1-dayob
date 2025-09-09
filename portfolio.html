@@ -1,59 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Dayo's Portfolio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
+
+    <div class="main-container">
+        <header class="header">
+            <h1>💼 Portfolio 💼</h1>
+            <div class="visitor-counter">
+                ACCESSING DATABASE... PROJECTS LOADED
+            </div>
+            <div class="marquee">
+                <span>🌟 Check out my latest creations! 🌟 Each project tells a story! 🌟</span>
+            </div>
+        </header>
+
         <nav>
-            <a href="index.html">Home</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="qualifications.html">Qualifications</a>
-            <a href="service.html">Service</a>
-            <a href="genai.html">GenAI</a>
+            <a href="index.html">HOME</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="qualifications.html">QUALIFICATIONS</a>
+            <a href="service.html">SERVICE</a>
+            <a href="genai.html">GENAI</a>
         </nav>
-    </header>
 
-    <main>
-        <h1>Dayo's Portfolio</h1>
+        <div class="content-wrapper">
+            <main class="main-content">
+                <div class="about-section">
+                    <h2>MY PROJECTS AHHHHH</h2>
+                    <p>Welcome to my project showcase! These are some of the coolest things I've built with code, sweat,
+                        and lots of caffeine ☕️ </p>
+                </div>
 
-        <div class="project" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>Athena (Personalized Browser)</h2>
-            <p>An intelligent browser that transforms tabs into a focus-driven workspace by leveraging semantic analysis to quantify productivity and optimize workflow.</p>
-            <p><strong>Tech used:</strong> Word2Vec, Jaccard similarity, Electron.js, AI relevance scoring</p>
-            <p><strong>Date:</strong> February 2025</p>
-            <p><strong>Link:</strong> <a href="#">GitHub Repo</a></p>
+                <div class="retro-box box-blue">
+                    <h2>🌟 ATHENA BROWSER</h2>
+                    <p><strong>🗓️ February 2025</strong></p>
+                    <p>An intelligent browser that transforms tabs into a focus-driven workspace. Using semantic
+                        analysis to help you stay productive and organized. It's like having a personal assistant for
+                        your browsing! You get graded based on your tab usages for what you want to work on, plus extra nudges to get back on track. 🧠</p>
+                    <p><strong>🔧 Tech Stack:</strong> Word2Vec, Jaccard similarity, Electron.js, AI relevance scoring
+                    </p>
+                    <p><strong>🔗 Links:</strong> <a href="#" class="retro-link">GitHub Repository</a></p>
+                </div>
+
+                <div class="retro-box box-green">
+                    <h2>📈 ELECTRONIC TRADING BOT</h2>
+                    <p><strong>🗓️ January 2025</strong></p>
+                    <p>A Python-powered trading bot that makes decisions faster than you can believe. It analyzes
+                        market data and executes trades using penny trading + arbitrage strategies to optimize profits. 💰🚀</p>
+                    <p><strong>🔧 Tech Stack:</strong> Python, trading algorithms, market analysis APIs</p>
+                    <p><strong>🔗 Link:</strong> <a href="https://github.com/D-BX/" class="retro-link">GitHub Repository</a></p>
+                </div>
+
+                <div class="retro-box box-red">
+                    <h2>🍕 FOOD RECOGNITION AI</h2>
+                    <p><strong>🗓️ January 2024 - May 2024</strong></p>
+                    <p>Ever wonder what that dish is called? My model can figure it out! Using deep learning magic with CNNs
+                        and ResNet-50, I achieved 60% accuracy on diverse food datasets. 🍔</p>
+                    <p><strong>🔧 Tech Stack:</strong> CNNs, ResNet-50, Python, TensorFlow/PyTorch, OpenCV</p>
+                    <p><strong>🔗 Link:</strong> <a href="https://github.com/D-BX/" class="retro-link">GitHub Repository</a></p>
+                </div>
+
+                <div class="retro-box box-purple">
+                    <h2>🚀 NEXFORM (MY STARTUP!)</h2>
+                    <p><strong>🗓️ December 2024 - Present</strong></p>
+                    <p>My baby! 👶 Co-founded this AI-powered form generator that creates surveys from simple prompts.
+                        We've got 1000+ users and counting! It generates shareable links, QR codes, and provides
+                        analytics. Living the entrepreneur dream! 💫</p>
+                    <p><strong>🔧 Tech Stack:</strong> AI/ML, React, Node.js, MongoDB, analytics dashboard</p>
+                    <p><strong>🔗 Links:</strong> <a href="https://nexform.io/" class="retro-link">Visit Nexform</a></p>
+                </div>
+
+            </main>
+
+            <aside class="sidebar">
+                <div class="buddy">
+                    <h3>🤖 CODE BUDDY</h3>
+                    <p id="buddyMessage">Check out these awesome projects! Each one taught me something new about coding
+                        and problem-solving! 💻</p>
+                    <button onclick="getProjectTip()">GET PROJECT TIP!</button>
+                </div>
+
+                <div class="music-player">
+                    <h3>🎵 CODING VIBES</h3>
+                    <div class="now-playing">♪ Lofi Hip Hop - Coding Sessions ♪</div>
+                    <div style="color: #00ff00; font-size: 10px; margin-top: 5px;">
+                        ████████░░ 75%
+                    </div>
+                </div>
+
+                <div class="guest-book">
+                    <h3>💬 PROJECT FEEDBACK</h3>
+                    <p style="color: #ffff00; font-size: 12px;">What do you think of my projects?</p>
+                    <textarea id="feedbackMessage" placeholder="Share your thoughts..."></textarea>
+                    <button onclick="submitFeedback()">SEND FEEDBACK!</button>
+                    <div class="retro-scroll" id="feedbackEntries"
+                        style="margin-top: 10px; color: #00ff00; font-size: 12px;">
+                        <div>🔥 Thomas: "Nexform is incredible!"</div>
+                        <div>⚡ Anuj: "The trading bot is genius!"</div>
+                        <div>🎯 Mike: "Food AI blew my mind!"</div>
+                    </div>
+                </div>
+            </aside>
         </div>
+    </div>
 
-        <div class="project" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>Electronic Trading Bot</h2>
-            <p>A Python-based trading bot that buys and sells bonds based on fair market value pricing using penny trading strategies to optimize profit and loss.</p>
-            <p><strong>Tech used:</strong> Python, trading algorithms, market analysis</p>
-            <p><strong>Date:</strong> January 2025</p>
-            <p><strong>Link:</strong> <a href="#">GitHub Repo</a></p>
-        </div>
+    <script>
+        const projectTips = [
+            "Athena browser can boost your productivity by 300%! 🚀",
+            "My trading bot made some sweet gains in testing! 📈",
+            "The food AI can recognize over 1000 different dishes! 🍕",
+            "Nexform started as a weekend hackathon project! 💡",
+            "I learned Electron.js just to build Athena! 🤓",
+            "The datathon platform handles thousands of users! 💪",
+            "Each project took months of late-night coding! ☕",
+            "Want to collaborate? Hit me up on LinkedIn! 🤝"
+        ];
 
-        <div class="project" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>Food Recognition System</h2>
-            <p>Research project on image classification for food recognition using convolutional neural networks and fine-tuned ResNet-50 architecture, achieving 60% accuracy on diverse food datasets.</p>
-            <p><strong>Tech used:</strong> CNNs, ResNet-50, Python, TensorFlow/PyTorch, image classification</p>
-            <p><strong>Date:</strong> January 2024 - May 2024</p>
-            <p><strong>Link:</strong> <a href="#">GitHub Repo</a></p>
-        </div>
+        function getProjectTip() {
+            const randomTip = projectTips[Math.floor(Math.random() * projectTips.length)];
+            document.getElementById('buddyMessage').innerHTML = randomTip;
+        }
 
-        <div class="project" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>Nexform (AI Form Generator)</h2>
-            <p>Co-founded startup developing an AI-powered form generator that creates forms/surveys from prompts, generates sharable links and QR codes, with response analytics. Currently serving 1000+ users.</p>
-            <p><strong>Tech used:</strong> AI/ML, web development, analytics dashboard, QR code generation</p>
-            <p><strong>Date:</strong> December 2024 - Present</p>
-            <p><strong>Link:</strong> <a href="#">GitHub Repo</a></p>
-        </div>
+        function submitFeedback() {
+            const messageInput = document.getElementById('feedbackMessage');
+            const message = messageInput.value.trim();
 
-    </main>
+            if (message) {
+                const feedbackEntries = document.getElementById('feedbackEntries');
+                const newEntry = document.createElement('div');
+                const reactions = ['🔥', '⚡', '🎯', '🌟', '💫', '🚀'];
+                const randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
+                newEntry.innerHTML = `${randomReaction} Visitor: "${message}"`;
+                feedbackEntries.insertBefore(newEntry, feedbackEntries.firstChild);
+                messageInput.value = '';
+
+                setTimeout(() => {
+                    document.getElementById('buddyMessage').innerHTML = `Thanks for the feedback! Your input helps me improve! 🙏✨`;
+                }, 500);
+            }
+        }
+
+        setTimeout(() => {
+            document.getElementById('welcomeBack').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('welcomeBack').style.display = 'none';
+            }, 3000);
+        }, 500);
+
+        function hideWelcome() {
+            document.getElementById('welcomeBack').style.display = 'none';
+        }
+
+        setInterval(() => {
+            getProjectTip();
+        }, 25000);
+
+        document.querySelectorAll('.retro-box').forEach(box => {
+            box.addEventListener('mouseenter', () => {
+                box.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+
+            box.addEventListener('mouseleave', () => {
+                box.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
-
 </html>

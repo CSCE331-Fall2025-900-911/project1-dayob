@@ -1,55 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Dayo's Qualifications</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
+    <div class="main-container">
+        <header class="header">
+            <h1>📜 QUALIFICATION MATRIX 📜</h1>
+            <div class="visitor-counter">
+                LOADING SKILLS DATABASE... ACCESS GRANTED ✓
+            </div>
+            <div class="marquee">
+                <span>🌟 Check out my technical expertise! 🌟 Always learning new things! 🌟</span>
+            </div>
+        </header>
+
         <nav>
-            <a href="index.html">Home</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="qualifications.html">Qualifications</a>
-            <a href="service.html">Service</a>
-            <a href="genai.html">GenAI</a>
+            <a href="index.html">HOME</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="qualifications.html">QUALIFICATIONS</a>
+            <a href="service.html">SERVICE</a>
+            <a href="genai.html">GENAI</a>
         </nav>
-    </header>
 
-    <main>
-        <h1>Dayo's Qualifications</h1>
+        <div class="content-wrapper">
+            <main class="main-content">
+                <div class="about-section">
+                    <h2>MY TECHNICAL ARSENAL</h2>
+                    <p>Welcome to my skills database! Here's everything I know how to do with computers and code.</p>
+                </div>
 
-        <div class="qualification" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>Resume</h2>
-            <p><strong>view resume below:</strong></p>
-            <iframe src="https://drive.google.com/file/d/1iUbD5RTfxUktqF9XLftVNsqCMIXaCqlK/view?usp=sharing" width="100%" height="600" style="border: 1px solid #ccc;"></iframe>
+                <div class="retro-box box-teal">
+                    <h2>📄 RESUME ACCESS</h2>
+                    <p><strong>View embedded resume below:</strong></p>
+                    <iframe src="https://drive.google.com/file/d/1iUbD5RTfxUktqF9XLftVNsqCMIXaCqlK/view?usp=sharing" width="100%"
+                        height="600" style="border: 2px solid #1abc9c; border-radius: 8px; background: #000;"></iframe>
+                </div>
+
+                <div class="retro-box box-green">
+                    <h2>⚡ TECHNICAL SKILLS</h2>
+                    <p><strong>Programming Languages:</strong> Python, C++, Java, React, JavaScript, HTML, CSS, Hack
+                        (PHP), OCaml, Haskell</p>
+
+                    <p><strong>Frameworks & Libraries:</strong> Pandas, TensorFlow, PyTorch, Django, React Native,
+                        StyleX, Relay, GraphQL</p>
+
+                    <p><strong>Tools & Platforms:</strong> Linux, AWS, SQL, Electron.js</p>
+
+                    <p><strong>Specialized Skills:</strong> Machine learning, data pipelines, semantic analysis, trading
+                        systems</p>
+                </div>
+
+                <div class="retro-box box-purple">
+                    <h2>🎯 TECHNICAL INTERESTS</h2>
+
+                    <p><strong>Machine Learning & AI:</strong> Research in ML recommender systems, CNNs for image
+                        classification, and AI applications in business.</p>
+
+                    <p><strong>Financial Technology:</strong> Algorithmic trading, quantitative finance, and electronic
+                        trading systems.</p>
+
+                    <p><strong>Full-Stack Development:</strong> Building scalable web applications and productivity
+                        tools with real user impact.</p>
+
+                    <p><strong>Data Engineering:</strong> Data pipelines, analytics, and performance visualization
+                        systems.</p>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="buddy">
+                    <h3>🤖 SKILLS BUDDY</h3>
+                    <p id="buddyMessage">I've been coding since high school and I'm always learning something new! Want
+                        to know more about any of these skills?</p>
+                    <button onclick="getSkillTip()">GET SKILL TIP!</button>
+                </div>
+
+                <div class="music-player">
+                    <h3>🎵 STUDY BEATS</h3>
+                    <div class="now-playing">♪ Lofi Hip Hop - Focus Mode ♪</div>
+                    <div style="color: #00ff00; font-size: 10px; margin-top: 5px;">
+                        ██████████ 100%
+                    </div>
+                </div>
+
+                <div class="guest-book">
+                    <h3>💭 SKILL QUESTIONS</h3>
+                    <p style="color: #ffff00; font-size: 12px;">Got questions about my skills?</p>
+                    <textarea id="questionMessage" placeholder="Ask me anything..."></textarea>
+                    <button onclick="submitQuestion()">ASK AWAY!</button>
+                    <div class="retro-scroll" id="questionEntries"
+                        style="margin-top: 10px; color: #00ff00; font-size: 12px;">
+                        <div>❓ Michelle: "How did you learn ML?"</div>
+                        <div>🧠 Josh: "Python tips for beginners?"</div>
+                        <div>💡 Laura: "Best coding resources?"</div>
+                    </div>
+                </div>
+            </aside>
         </div>
+    </div>
 
-        <div class="qualification" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>Technical Skills</h2>
-            <p><strong>Programming Languages:</strong> Python, C++, Java, React, JavaScript, HTML, CSS, Hack (PHP), OCaml, Haskell</p>
-            
-            <p><strong>Frameworks & Libraries:</strong> Pandas, TensorFlow, PyTorch, Django, React Native, StyleX, Relay, GraphQL</p>
-            
-            <p><strong>Tools & Platforms:</strong> Linux, AWS, SQL, Electron.js</p>
-            
-        </div>
+    <script>
+        const skillTips = [
+            "I learned Python by building my first trading bot! 🐍",
+            "Meta taught me React Native and GraphQL - amazing experience! ⚛️",
+            "TensorFlow is perfect for deep learning projects! 🧠",
+            "AWS is my go-to for cloud deployment! ☁️",
+            "OCaml was tricky at first but Jane Street made it fun! 🐪",
+            "Machine learning combines math and code perfectly! 🔢",
+            "I use Pandas for all my data analysis work! 🐼",
+            "DEDICATED VIM USER DEEP CUT V2 🐧"
+        ];
 
-        <div class="qualification" style="border: 2px solid #333; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-            <h2>Technical Areas of Interest in Computer Science</h2>
-            
-            <p><strong>Machine Learning & AI:</strong> Research in ML recommender systems, CNNs for image classification, and AI applications in business.</p>
-            
-            <p><strong>Financial Technology:</strong> Algorithmic trading, quantitative finance, and electronic trading systems.</p>
-            
-            <p><strong>Full-Stack Development:</strong> Building scalable web applications and productivity tools with real user impact.</p>
-            
-            <p><strong>Data Engineering:</strong> Data pipelines, analytics, and performance visualization systems.</p>
-        </div>
+        function getSkillTip() {
+            const randomTip = skillTips[Math.floor(Math.random() * skillTips.length)];
+            document.getElementById('buddyMessage').innerHTML = randomTip;
+        }
 
-    </main>
+        function submitQuestion() {
+            const messageInput = document.getElementById('questionMessage');
+            const message = messageInput.value.trim();
+
+            if (message) {
+                const questionEntries = document.getElementById('questionEntries');
+                const newEntry = document.createElement('div');
+                const icons = ['❓', '🧠', '💡', '🤔', '📚', '⚡'];
+                const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+                newEntry.innerHTML = `${randomIcon} Visitor: "${message}"`;
+                questionEntries.insertBefore(newEntry, questionEntries.firstChild);
+                messageInput.value = '';
+
+                setTimeout(() => {
+                    document.getElementById('buddyMessage').innerHTML = `Great question! I'd love to chat more about my technical skills! Feel free to reach out! 💬`;
+                }, 500);
+            }
+        }
+
+        setInterval(() => {
+            getSkillTip();
+        }, 20000);
+
+        document.querySelectorAll('.retro-box').forEach(box => {
+            box.addEventListener('mouseenter', () => {
+                box.style.transform = 'translateY(-3px) scale(1.01)';
+            });
+
+            box.addEventListener('mouseleave', () => {
+                box.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 
 </html>

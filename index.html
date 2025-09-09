@@ -1,43 +1,172 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
-
 <head>
-  <title>Dayo's Home</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>✨ Welcome to Dayo's Cyber Space ✨</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="qualifications.html">Qualifications</a>
-      <a href="service.html">Service</a>
-      <a href="genai.html">GenAI</a>
-    </nav>
-  </header>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td align="center">
-          <h1>Welcome to Dayo's House</h1>
-        <img src="dkaws.jpeg" width="300" height="300">
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <h2>Oluwadayo Bamgbelu</h2>
-        <p><strong>Computer Science Student</strong></p>
-        <p>Texas A&M University | Class of 2027 | Whoop!</p>
-        <p>Minors in Mathematics and AI in Business</p>
-      </td>
-    </tr>
-  </table>
-  <main>
+    <div id="welcomePopup" class="welcome-popup">
+        <h2>🌟 WELCOME TO DAYO'S CYBER SPACE! 🌟</h2>
+        <p>Enter your name to get the full retro experience!</p>
+        <input type="text" id="visitorName" placeholder="What's your name?" maxlength="20">
+        <br>
+        <button onclick="enterSite()">ENTER THE MATRIX</button>
+    </div>
+
+    <div id="mainSite" class="hidden">
+        <div class="main-container">
+            <header class="header">
+                <h1>✨ DAYO'S CYBER SPACE ✨</h1>
+                <div class="visitor-counter">
+                    VISITOR #<span id="visitorCount">001337</span> - WELCOME <span id="userNameDisplay"></span>!
+                </div>
+                <div class="marquee">
+                    <span>🌟 Thanks for visiting my retro website! 🌟Go Ags!🌟</span>
+                </div>
+            </header>
+            
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="portfolio.html">PORTFOLIO</a>
+                <a href="qualifications.html">QUALIFICATIONS</a>
+                <a href="service.html">SERVICE</a>
+                <a href="genai.html">GENAI</a>
+            </nav>
+            
+            <div class="content-wrapper">
+                <main class="main-content">
+                    <img src="dkaws.jpeg" alt="Dayo's Profile Pic" class="profile-pic">
+                    
+                    <div class="about-section">
+                        <h2>ABOUT DAYO.EXE</h2>
+                        <p>Hey there, <span id="userName1">visitor</span>! I'm Oluwadayo Bamgbelu, but you can call me Dayo.</p>
+                        <p>I'm a Computer Science student at Texas A&M University (Class of 2027 Whoop!) who loves building cool stuff. I'm into machine learning, finance, and creating software that has an impact 💫</p>
+                        <p>When I'm not coding, you can find me with my TAMU Datathon squad, working on my next startup, or probably debugging something at 3 AM while listening to lofi hip-hop. 😎</p>
+                    </div>
+                    
+                </main>
+                
+                <aside class="sidebar">
+                    <div class="buddy">
+                        <h3>🤖 DAYO BUDDY</h3>
+                        <p id="buddyMessage">Hello there, <span id="userName2">friend</span>! I'm your personal guide through this retro experience!</p>
+                        <button onclick="getBuddyTip()">GET A TIP!</button>
+                    </div>
+                    
+                    <div class="music-player">
+                        <h3>🎵 NOW PLAYING</h3>
+                        <div class="now-playing">♪ Video Killed the Radio Star: The Buggles ♪</div>
+                        <div style="color: #00ff00; font-size: 10px; margin-top: 5px;">
+                            ████████░░ 80%
+                        </div>
+                    </div>
+                    
+                    <div class="guest-book">
+                        <h3>📝 GUEST BOOK</h3>
+                        <p style="color: #ffff00; font-size: 12px;">Leave a message for <span id="userName3">everyone</span>!</p>
+                        <textarea id="guestMessage" placeholder="Type your message here..."></textarea>
+                        <button onclick="signGuestBook()">SIGN IT!</button>
+                        <div class="retro-scroll" id="guestEntries" style="margin-top: 10px; color: #00ff00; font-size: 12px;">
+                            <div>💫 Andre: "Love the retro vibe!"</div>
+                            <div>🌟 Lucca: "Coolest website ever!"</div>
+                            <div>✨ Ryan: "This takes me back!"</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let visitorName = '';
+        const buddyTips = [
+            "Did you know? I've won 4 hackathons! Pretty cool, right {name}?",
+            "Hey {name}, check out my portfolio page - I built some awesome stuff!",
+            "Fun fact {name}: I love working with AI and machine learning!",
+            "Psst {name}... check out Nexform!",
+            "The song choice is def a deep cut if you know you know 😉 🤫",
+            "I interned at Meta twice, {name}! It was sick!",
+            "I'm studying at Texas A&M, {name}. Gig 'em! 👍"
+        ];
         
-
-
-  </main>
-
+        function enterSite() {
+            const nameInput = document.getElementById('visitorName');
+            visitorName = nameInput.value.trim() || 'Anonymous Visitor';
+            
+            document.getElementById('userNameDisplay').textContent = visitorName.toUpperCase();
+            document.getElementById('userName1').textContent = visitorName;
+            document.getElementById('userName2').textContent = visitorName;
+            document.getElementById('userName3').textContent = visitorName;
+            
+            document.getElementById('welcomePopup').classList.add('hidden');
+            document.getElementById('mainSite').classList.remove('hidden');
+            
+            const randomCount = Math.floor(Math.random() * 900000) + 100000;
+            document.getElementById('visitorCount').textContent = randomCount.toString().padStart(6, '0');
+            
+            setTimeout(() => {
+                const welcomeMessages = [
+                    `Welcome to my digital realm, ${visitorName}!`,
+                    `Great to see you here, ${visitorName}!`,
+                    `${visitorName}, you've entered the coolest site on the web!`
+                ];
+                const randomWelcome = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+                document.getElementById('buddyMessage').innerHTML = randomWelcome;
+            }, 1000);
+        }
+        
+        function getBuddyTip() {
+            const randomTip = buddyTips[Math.floor(Math.random() * buddyTips.length)];
+            const personalizedTip = randomTip.replace('{name}', visitorName);
+            document.getElementById('buddyMessage').innerHTML = personalizedTip;
+        }
+        
+        function signGuestBook() {
+            const messageInput = document.getElementById('guestMessage');
+            const message = messageInput.value.trim();
+            
+            if (message) {
+                const guestEntries = document.getElementById('guestEntries');
+                const newEntry = document.createElement('div');
+                newEntry.innerHTML = `🌟 ${visitorName}: "${message}"`;
+                guestEntries.insertBefore(newEntry, guestEntries.firstChild);
+                messageInput.value = '';
+                
+                setTimeout(() => {
+                    document.getElementById('buddyMessage').innerHTML = `Thanks for signing the guestbook, ${visitorName}! You're awesome! 🌟`;
+                }, 500);
+            }
+        }
+        
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.8) { 
+                const trail = document.createElement('div');
+                trail.style.cssText = `
+                    position: fixed;
+                    width: 8px;
+                    height: 8px;
+                    background: #ff00ff;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 999;
+                    left: ${e.clientX}px;
+                    top: ${e.clientY}px;
+                    animation: fade 1s linear forwards;
+                `;
+                document.body.appendChild(trail);
+                
+                setTimeout(() => {
+                    trail.remove();
+                }, 1000);
+            }
+        });
+        
+        setInterval(() => {
+            if (!document.getElementById('mainSite').classList.contains('hidden')) {
+                getBuddyTip();
+            }
+        }, 30000);
+    </script>
 </body>
-
 </html>
