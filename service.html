@@ -10,12 +10,12 @@
 <body>
     <div class="main-container">
         <header class="header">
-            <h1>🎪 SERVICE AREA 🎪</h1>
+            <h1>SERVICE AREA</h1>
             <div class="visitor-counter">
-                COMMUNITY CONNECTION ESTABLISHED... CLUBS LOADED ✓
+                COMMUNITY CONNECTION ESTABLISHED... CLUBS LOADED 
             </div>
             <div class="marquee">
-                <span>🌟 Leadership, community, and making a difference! 🌟 Join the movement! 🌟</span>
+                <span>Leadership, community, and making a difference! Join the movement!</span>
             </div>
         </header>
 
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="retro-box box-orange">
-                    <h2>🏆 TAMU DATATHON</h2>
+                    <h2>TAMU DATATHON (MY FAVORITE)</h2>
                     <p><strong>Position:</strong> President (Former Developer)</p>
                     <p><strong>Duration:</strong> January 2024 - Present</p>
                     <p><strong>What We Do:</strong> TAMU Datathon is a collegiate hackathon that brings together 500+
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="retro-box box-blue">
-                    <h2>🌟 COLORSTACK</h2>
+                    <h2>COLORSTACK</h2>
                     <p><strong>Position:</strong> Member</p>
                     <p><strong>Duration:</strong> August 2024 - Present</p>
                     <p><strong>What We Do:</strong> ColorStack is a nonprofit dedicated to increasing the number of
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="retro-box box-red">
-                    <h2>🤖 AI4ALL IGNITE</h2>
+                    <h2>AI4ALL IGNITE</h2>
                     <p><strong>Position:</strong> Scholar</p>
                     <p><strong>Duration:</strong> January 2024 - July 2024</p>
                     <p><strong>What It Was:</strong> AI4ALL Ignite provides mentorship, community, and opportunities for
@@ -81,31 +81,28 @@
 
             <aside class="sidebar">
                 <div class="buddy">
-                    <h3>🤖 COMMUNITY BUDDY</h3>
-                    <p id="buddyMessage">Leadership isn't just about being in charge - it's about lifting others up and
-                        creating opportunities for everyone to succeed! 💪</p>
+                    <h3>CLUB TWIN</h3>
+                    <p id="buddyMessage">Leadership isn't just about being in charge </p>
                     <button onclick="getLeadershipTip()">GET LEADERSHIP TIP!</button>
                 </div>
 
                 <div class="music-player">
-                    <h3>🎵 MOTIVATION MUSIC</h3>
-                    <div class="now-playing">♪ BABY I'M BACK - The Kid LAROI ♪</div>
-                    <div style="color: #00ff00; font-size: 10px; margin-top: 5px;">
-                        ███████░░░ 70%
-                    </div>
+                    <h3>MOTIVATION MUSIC</h3>
+                    <div class="now-playing">BABY I'M BACK - The Kid LAROI</div>
+
                 </div>
 
                 <div class="guest-book">
-                    <h3>💪 LEADERSHIP CHAT</h3>
+                    <h3>LEADERSHIP CHAT</h3>
                     <p style="color: #ffff00; font-size: 12px;">Want to get involved or have questions about leadership?
                     </p>
                     <textarea id="leadershipMessage" placeholder="Share your thoughts..."></textarea>
                     <button onclick="submitLeadershipNote()">LET'S TALK!</button>
                     <div class="retro-scroll" id="leadershipEntries"
                         style="margin-top: 10px; color: #00ff00; font-size: 12px;">
-                        <div>🚀 Ashley: "How do you manage such a big team?"</div>
-                        <div>💡 Noah: "Tips for starting a club?"</div>
-                        <div>🌟 Paul: "Leadership inspiration!"</div>
+                        <div>Ashley: "How do you manage such a big team?"</div>
+                        <div>Noah: "Tips for starting a club?"</div>
+                        <div>Paul: "Leadership inspiration!"</div>
                     </div>
                 </div>
 
@@ -113,12 +110,12 @@
                     style="background: rgba(255, 255, 0, 0.1); border: 2px solid #ffff00; border-radius: 10px; padding: 15px; margin-top: 15px;">
                     <h3
                         style="color: #ffff00; margin: 0 0 10px 0; font-family: 'Press Start 2P', cursive; font-size: 10px;">
-                        🎯 QUICK STATS</h3>
+                        QUICK STATS</h3>
                     <div style="color: #ffffff; font-size: 12px;">
-                        <div>👥 40+ Team Members Led</div>
-                        <div>🎪 500+ Event Attendees</div>
-                        <div>💻 Multiple Platforms Built</div>
-                        <div>🌟 3+ Communities Active In</div>
+                        <div>40+ Team Members Led</div>
+                        <div>500+ Event Attendees</div>
+                        <div>Multiple Platforms Built</div>
+                        <div>3+ Communities Active In</div>
                     </div>
                 </div>
             </aside>
@@ -130,7 +127,7 @@
             "Leading TAMU Datathon taught me that great teams make great events! 👥",
             "The best leaders listen more than they talk! 👂",
             "Every failure is just a learning opportunity in disguise! 📚",
-            "Building inclusive communities starts with being inclusive yourself! 🌈",
+            "Building inclusive communities starts with being inclusive yourself!",
             "Technical skills + leadership skills = unstoppable combo! 💪",
             "ColorStack showed me the power of representation in tech! ✊",
             "AI4ALL taught me that innovation should benefit everyone! 🌍",
@@ -155,19 +152,16 @@
                 leadershipEntries.insertBefore(newEntry, leadershipEntries.firstChild);
                 messageInput.value = '';
 
-                // Buddy reaction
                 setTimeout(() => {
                     document.getElementById('buddyMessage').innerHTML = `I love talking about leadership and community building! Thanks for sharing your thoughts! 🙌`;
                 }, 500);
             }
         }
 
-        // Auto-rotate leadership tips
         setInterval(() => {
             getLeadershipTip();
         }, 22000);
 
-        // Add interactive effects
         document.querySelectorAll('.retro-box').forEach(box => {
             box.addEventListener('mouseenter', () => {
                 box.style.transform = 'translateY(-3px) scale(1.01)';
@@ -178,10 +172,8 @@
             });
         });
 
-        // Add some sparkle effects on hover
         document.querySelectorAll('.retro-box').forEach(box => {
             box.addEventListener('click', () => {
-                // Create a little celebration effect
                 const celebration = document.createElement('div');
                 celebration.innerHTML = '✨';
                 celebration.style.cssText = `
