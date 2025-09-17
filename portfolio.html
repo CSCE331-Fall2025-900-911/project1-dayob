@@ -4,11 +4,13 @@
 <head>
     <title>Dayo's Portfolio</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <link rel="stylesheet" href="styles.css">
+    <link id="mainStyleSheet" rel="stylesheet" href="styles.css">
+    
 </head>
 
 <body>
 
+    <button id="changeStylesBtn" style="position:fixed;top:10px;right:10px;z-index:2000;">Change Styles</button>
     <div class="main-container">
         <header class="header">
             <h1>Portfolio</h1>
@@ -34,6 +36,18 @@
                     <h2>MY PROJECTS AHHHHH</h2>
                     <p>Welcome to my project showcase! These are some of the coolest things I've built with code, sweat,
                         and lots of caffeine ☕️ </p>
+                </div>
+
+                <div class="retro-box" style="background:#f4f4f4; border:1px solid #e0e0e0; border-radius:8px; padding:18px; margin-bottom:18px; box-shadow:0 1px 4px #e0e0e0;">
+                    <h2 style="color:#444; font-size:1.1rem; margin-top:0;">Connect with me</h2>
+                    <ul style="list-style:none; padding:0; margin:0;">
+                        <li><a href="https://www.instagram.com/dayo.bam/" style="color:#0077cc;">Instagram</a></li>
+                        <li><a href="https://www.pinterest.com/ddmds66/" style="color:#0077cc;">Pinterest</a></li>
+                        <li><a href="https://www.linkedin.com/in/oluwadayo-bamgbelu/" style="color:#0077cc;">LinkedIn</a></li>
+                        <li><a href="x.com" style="color:#0077cc;">Twitter/X</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61554774774744" style="color:#0077cc;">Facebook</a></li>
+                        <li><a href="youtube.com" style="color:#0077cc;">YouTube</a></li>
+                    </ul>
                 </div>
 
                 <div class="retro-box box-blue">
@@ -108,6 +122,33 @@
     </div>
 
     <script>
+        const changeStylesBtn = document.getElementById('changeStylesBtn');
+        const mainStyleSheet = document.getElementById('mainStyleSheet');
+        const RETRO_STYLE = 'styles.css';
+        const CLEAN_STYLE = 'cleanstyles.css';
+
+        function setStyle(isClean) {
+            mainStyleSheet.setAttribute('href', isClean ? CLEAN_STYLE : RETRO_STYLE);
+        }
+
+        function updateButtonText(isClean) {
+            changeStylesBtn.textContent = isClean ? 'Restore Retro Styles' : 'Change Styles';
+        }
+
+        function checkAndApplyStyle() {
+            const isClean = localStorage.getItem('cleanStyleEnabled') === 'true';
+            setStyle(isClean);
+            updateButtonText(isClean);
+        }
+
+        changeStylesBtn.addEventListener('click', function() {
+            const isClean = localStorage.getItem('cleanStyleEnabled') === 'true';
+            localStorage.setItem('cleanStyleEnabled', (!isClean).toString());
+            checkAndApplyStyle();
+        });
+
+        checkAndApplyStyle();
+
         const projectTips = [
             "Athena browser can boost your productivity by 300%!",
             "My trading bot made some sweet gains in testing!",

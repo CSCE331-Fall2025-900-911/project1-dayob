@@ -5,9 +5,29 @@
     <title>Dayo's Qualifications</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background: #f8f8f8 !important; color: #222 !important; font-family: Arial, sans-serif !important; margin: 0; }
+        .main-container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+        .header, nav { background: #fff; border-radius: 10px; box-shadow: 0 2px 8px #e0e0e0; margin-bottom: 18px; padding: 18px; }
+        .header h1 { color: #333; font-size: 2rem; margin: 0; }
+        .visitor-counter, .marquee { color: #666; font-size: 1rem; margin: 8px 0; }
+        nav a { color: #0077cc; margin: 0 10px; text-decoration: none; font-weight: 500; }
+        nav a:hover { text-decoration: underline; }
+        .content-wrapper { display: flex; gap: 24px; }
+        .main-content { flex: 2; }
+        .sidebar { flex: 1; }
+        .retro-box, .buddy, .music-player, .guest-book, .about-section { background: #f4f4f4; border: 1px solid #e0e0e0; border-radius: 8px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 4px #e0e0e0; }
+        .retro-box h2, .buddy h3, .music-player h3, .guest-book h3, .about-section h2 { color: #444; font-size: 1.1rem; margin-top: 0; }
+        button { background: #eaeaea; border: 1px solid #ccc; border-radius: 5px; padding: 6px 14px; color: #333; cursor: pointer; font-size: 1rem; }
+        button:hover { background: #ddd; }
+        textarea { width: 100%; border-radius: 5px; border: 1px solid #ccc; padding: 6px; font-size: 1rem; background: #fff; color: #222; }
+        .retro-scroll { background: #fff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; max-height: 180px; overflow-y: auto; color: #333; font-size: 0.95rem; }
+        @media (max-width: 900px) { .content-wrapper { flex-direction: column; } }
+    </style>
 </head>
 
 <body>
+    <button id="changeStylesBtn" style="position:fixed;top:10px;right:10px;z-index:2000;">Change Styles</button>
     <div class="main-container">
         <header class="header">
             <h1>QUALIFICATION MATRIX</h1>
@@ -37,7 +57,7 @@
                 <div class="retro-box box-teal">
                     <h2>RESUME ACCESS</h2>
                     <p><strong>View embedded resume below:</strong></p>
-                    <iframe src="https://drive.google.com/file/d/1iUbD5RTfxUktqF9XLftVNsqCMIXaCqlK/view?usp=sharing" width="100%"
+                    <iframe src="Bamgbelu_Oluwadayo_Resume(Aug 25).pdf" width="100%"
                         height="600" style="border: 2px solid #1abc9c; border-radius: 8px; background: #000;"></iframe>
                 </div>
 
@@ -102,6 +122,49 @@
     </div>
 
     <script>
+        const styleSheet = document.querySelector('link[rel="stylesheet"]');
+        const changeStylesBtn = document.getElementById('changeStylesBtn');
+        const BASIC_STYLE_ID = 'basicStyle';
+        const BASIC_CSS = `body { background: #fff !important; color: #000 !important; font-family: Arial, sans-serif !important; }
+        .main-container, .header, .sidebar, .main-content, nav, .retro-box, .buddy, .music-player, .guest-book, .about-section, .profile-pic, .marquee, .visitor-counter, .retro-scroll { all: unset !important; background: none !important; border: none !important; color: #000 !important; box-shadow: none !important; }
+        button, input, textarea { all: unset !important; background: #eee !important; color: #000 !important; border: 1px solid #ccc !important; padding: 4px !important; }
+        a { color: #00f !important; text-decoration: underline !important; }
+        `;
+
+        function setBasicStyle(enabled) {
+            if (enabled) {
+                if (!document.getElementById(BASIC_STYLE_ID)) {
+                    const style = document.createElement('style');
+                    style.id = BASIC_STYLE_ID;
+                    style.textContent = BASIC_CSS;
+                    document.head.appendChild(style);
+                }
+                if (styleSheet) styleSheet.disabled = true;
+            } else {
+                const style = document.getElementById(BASIC_STYLE_ID);
+                if (style) style.remove();
+                if (styleSheet) styleSheet.disabled = false;
+            }
+        }
+
+        function updateButtonText(isBasic) {
+            changeStylesBtn.textContent = isBasic ? 'Restore Retro Styles' : 'Change Styles';
+        }
+
+        function checkAndApplyStyle() {
+            const isBasic = localStorage.getItem('basicStyleEnabled') === 'true';
+            setBasicStyle(isBasic);
+            updateButtonText(isBasic);
+        }
+
+        changeStylesBtn.addEventListener('click', function() {
+            const isBasic = localStorage.getItem('basicStyleEnabled') === 'true';
+            localStorage.setItem('basicStyleEnabled', (!isBasic).toString());
+            checkAndApplyStyle();
+        });
+
+        checkAndApplyStyle();
+
         const skillTips = [
             "Meta taught me React Native and GraphQL - amazing experience!",
             "TensorFlow is perfect for deep learning projects!",

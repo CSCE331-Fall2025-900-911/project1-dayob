@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button id="changeStylesBtn" style="position:fixed;top:10px;right:10px;z-index:2000;">Change Styles</button>
     <div id="welcomePopup" class="welcome-popup">
         <h2>WELCOME TO DAYO'S CYBER SPACE!</h2>
         <p>Enter your name to get the full retro experience!</p>
@@ -77,7 +78,49 @@
 
     <script>
         let visitorName = '';
-        const buddyTips = [
+        const styleSheet = document.querySelector('link[rel="stylesheet"]');
+        const changeStylesBtn = document.getElementById('changeStylesBtn');
+        const BASIC_STYLE_ID = 'basicStyle';
+        const BASIC_CSS = `body { background: #fff !important; color: #000 !important; font-family: Arial, sans-serif !important; }
+        .main-container, .header, .sidebar, .main-content, nav, .retro-box, .buddy, .music-player, .guest-book, .about-section, .profile-pic, .marquee, .visitor-counter, .retro-scroll { all: unset !important; background: none !important; border: none !important; color: #000 !important; box-shadow: none !important; }
+        button, input, textarea { all: unset !important; background: #eee !important; color: #000 !important; border: 1px solid #ccc !important; padding: 4px !important; }
+        a { color: #00f !important; text-decoration: underline !important; }
+        `;
+
+        function setBasicStyle(enabled) {
+            if (enabled) {
+                if (!document.getElementById(BASIC_STYLE_ID)) {
+                    const style = document.createElement('style');
+                    style.id = BASIC_STYLE_ID;
+                    style.textContent = BASIC_CSS;
+                    document.head.appendChild(style);
+                }
+                if (styleSheet) styleSheet.disabled = true;
+            } else {
+                const style = document.getElementById(BASIC_STYLE_ID);
+                if (style) style.remove();
+                if (styleSheet) styleSheet.disabled = false;
+            }
+        }
+
+        function updateButtonText(isBasic) {
+            changeStylesBtn.textContent = isBasic ? 'Restore Retro Styles' : 'Change Styles';
+        }
+
+        function checkAndApplyStyle() {
+            const isBasic = localStorage.getItem('basicStyleEnabled') === 'true';
+            setBasicStyle(isBasic);
+            updateButtonText(isBasic);
+        }
+
+        changeStylesBtn.addEventListener('click', function() {
+            const isBasic = localStorage.getItem('basicStyleEnabled') === 'true';
+            localStorage.setItem('basicStyleEnabled', (!isBasic).toString());
+            checkAndApplyStyle();
+        });
+
+        checkAndApplyStyle();
+    const buddyTips = [
             "Did you know? I've won 4 hackathons! Pretty cool, right {name}?",
             "Hey {name}, check out my portfolio page - I built some awesome stuff!",
             "Fun fact {name}: I love working with AI and machine learning!",
@@ -87,7 +130,7 @@
             "I'm studying at Texas A&M, {name}. Gig 'em! 👍"
         ];
         
-        function enterSite() {
+    function enterSite() {
             const nameInput = document.getElementById('visitorName');
             visitorName = nameInput.value.trim() || 'Anonymous Visitor';
             
@@ -113,13 +156,13 @@
             }, 1000);
         }
         
-        function getBuddyTip() {
+    function getBuddyTip() {
             const randomTip = buddyTips[Math.floor(Math.random() * buddyTips.length)];
             const personalizedTip = randomTip.replace('{name}', visitorName);
             document.getElementById('buddyMessage').innerHTML = personalizedTip;
         }
         
-        function signGuestBook() {
+    function signGuestBook() {
             const messageInput = document.getElementById('guestMessage');
             const message = messageInput.value.trim();
             
@@ -136,7 +179,7 @@
             }
         }
         
-        document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function(e) {
             if (Math.random() > 0.8) { 
                 const trail = document.createElement('div');
                 trail.style.cssText = `
@@ -159,11 +202,13 @@
             }
         });
         
-        setInterval(() => {
+    setInterval(() => {
             if (!document.getElementById('mainSite').classList.contains('hidden')) {
                 getBuddyTip();
             }
         }, 30000);
+
+
     </script>
 </body>
 </html>
