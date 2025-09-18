@@ -1,30 +1,103 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
-
 <head>
-    <title>GenAI</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Arsenal FC - The Gunners Will Rise Again!</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="arsenal-styles.css">
 </head>
-
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="qualifications.html">Qualifications</a>
-            <a href="service.html">Service</a>
-            <a href="genai.html">GenAI</a>
-        </nav>
-    </header>
+    <!-- 2000s Style Navigation -->
+    <div class="navbar-container">
+        <div class="navbar">
+            <div class="nav-logo">ARSENAL FC</div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-button">HOME</a>
+                <a href="portfolio.html" class="nav-button">PORTFOLIO</a>
+                <a href="qualifications.html" class="nav-button">QUALIFICATIONS</a>
+                <a href="service.html" class="nav-button">SERVICE</a>
+                <a href="genai.html" class="nav-button">GENAI</a>
+            </div>
+        </div>
+    </div>
 
-    <font color="#990000"><br><br>This page is currently under construction.</font>
+    <!-- Soccer Ball Animation -->
+    <div class="soccer-ball"></div>
 
-    <main>
+    <!-- Main Content -->
+    <div class="main-container">
+        <header class="arsenal-header">
+            <h1>ARSENAL FC: THE GUNNERS' LEGACY</h1>
+            <p class="subtitle">North London's Finest Since 1886</p>
+        </header>
 
+        <!-- Formation Diagram -->
+        <div class="formation-diagram">
+            <h3>Arsenal's Winning Formation 2024-25</h3>
+            <div class="pitch">
+                <div class="player-position gk">Raya</div>
+                <div class="player-position def1">White</div>
+                <div class="player-position def2">Saliba</div>
+                <div class="player-position def3">Gabriel</div>
+                <div class="player-position def4">Timber</div>
+                <div class="player-position mid1">Rice</div>
+                <div class="player-position mid2">Ødegaard</div>
+                <div class="player-position mid3">Havertz</div>
+                <div class="player-position att1">Saka</div>
+                <div class="player-position att2">Jesus</div>
+                <div class="player-position att3">Martinelli</div>
+            </div>
+        </div>
 
+        <!-- Main Article -->
+        <div class="content-box">
+            <p>Arsenal Football Club, founded in 1886 in Woolwich, has established itself as one of England's most prestigious clubs through decades of tactical innovation and legendary players. The Gunners' golden era under Arsène Wenger from 1996-2018 revolutionized English football with the famous "Invincibles" season of 2003-04, where they went unbeaten in the Premier League. This period showcased Arsenal's commitment to beautiful, flowing football and youth development, producing icons like Thierry Henry, Dennis Bergkamp, and Patrick Vieira who defined a generation.</p>
 
-    </main>
+            <p>The club's rich history includes 13 First Division and Premier League titles, 14 FA Cups, and numerous memorable European campaigns. Arsenal's move from Highbury to the Emirates Stadium in 2006 marked a new chapter, though it came with financial constraints that limited transfer spending for years. The period following Wenger's departure saw struggles, but it also laid the groundwork for the current resurgence under Mikel Arteta, who has restored the club's identity and competitive edge.</p>
 
+            <p>Under Arteta's leadership, Arsenal has transformed into a formidable force capable of challenging for major honors. The 2022-23 season saw them lead the Premier League for most of the campaign, demonstrating their tactical maturity and mental strength. With key signings like Declan Rice, Kai Havertz, and the continued development of stars like Bukayo Saka and Martin Ødegaard, Arsenal possesses the perfect blend of experience and youth needed for sustained success.</p>
+
+            <p>The current squad's depth and versatility give Arsenal multiple tactical options, while their defensive solidity built around William Saliba and Gabriel Magalhães provides the foundation for title challenges. Their attacking prowess, led by the pace of Gabriel Martinelli and creativity of Ødegaard, creates numerous goal-scoring opportunities. The addition of Rice has solved their midfield puzzle, providing the defensive cover and leadership qualities that were previously missing from their championship aspirations.</p>
+
+            <p>Arsenal's path to Premier League and Champions League glory lies in their tactical evolution, squad depth, and renewed winning mentality. Their young core is entering peak years while maintaining hunger for trophies, and Arteta's tactical acumen has proven capable of adapting to different opponents and situations. With improved squad rotation, European experience, and the unwavering support of their passionate fanbase, Arsenal possesses all the ingredients necessary to end their title drought and restore their position among Europe's elite clubs this season.</p>
+        </div>
+
+        <!-- Trophy Case -->
+        <div class="trophy-case">
+            <h3>Arsenal Trophy Cabinet</h3>
+            <div class="trophies">
+                <div class="trophy">🏆 13x League Titles</div>
+                <div class="trophy">🏆 14x FA Cups</div>
+                <div class="trophy">🏆 2x League Cups</div>
+                <div class="trophy">🏆 17x Community Shields</div>
+            </div>
+        </div>
+
+        <!-- Prompt Box -->
+        <div class="prompt-box">
+            <h4>Original Assignment Prompt:</h4>
+            <p>"Can you make me an html and extra css page with a very 2000's themed navbar that navigates to all the other pages (home, qualifications, portfolio, service, and the genai page). i want you to divulge into the history of the soccer team arsenal as well as why they will win the league and champions league this year. this needs to be 5 paragraphs long with 400 words in total as well as i want you to have a box at the bottom that shows this exact prompt. Also include diagrams and make the page soccer themed. Be as creative as you want."</p>
+        </div>
+    </div>
+
+    <!-- Floating Arsenal Logo -->
+    <div class="floating-logo">AFC</div>
+
+    <script>
+        // Simple 2000s-style scroll effect
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const logo = document.querySelector('.floating-logo');
+            logo.style.transform = `translateY(${scrolled * 0.5}px) rotate(${scrolled * 0.1}deg)`;
+        });
+
+        // Soccer ball animation
+        const ball = document.querySelector('.soccer-ball');
+        let position = 0;
+        setInterval(() => {
+            position += 1;
+            if (position > window.innerWidth) position = -50;
+            ball.style.left = position + 'px';
+        }, 50);
+    </script>
 </body>
-
 </html>
