@@ -3,7 +3,7 @@
 <head>
     <title> Welcome to Dayo's Cyber Space </title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <link rel="stylesheet" href="styles.css">
+        <link id="mainStyleSheet" rel="stylesheet" href="secondstyle.css">
 </head>
 <body>
     <button id="changeStylesBtn" style="position:fixed;top:10px;right:10px;z-index:2000;">Change Styles</button>
@@ -78,48 +78,50 @@
 
     <script>
         let visitorName = '';
-        const styleSheet = document.querySelector('link[rel="stylesheet"]');
-        const changeStylesBtn = document.getElementById('changeStylesBtn');
-        const BASIC_STYLE_ID = 'basicStyle';
-        const BASIC_CSS = `body { background: #fff !important; color: #000 !important; font-family: Arial, sans-serif !important; }
-        .main-container, .header, .sidebar, .main-content, nav, .retro-box, .buddy, .music-player, .guest-book, .about-section, .profile-pic, .marquee, .visitor-counter, .retro-scroll { all: unset !important; background: none !important; border: none !important; color: #000 !important; box-shadow: none !important; }
-        button, input, textarea { all: unset !important; background: #eee !important; color: #000 !important; border: 1px solid #ccc !important; padding: 4px !important; }
-        a { color: #00f !important; text-decoration: underline !important; }
-        `;
+            const changeStylesBtn = document.getElementById('changeStylesBtn');
+            const mainStyleSheet = document.getElementById('mainStyleSheet');
+            const RETRO_STYLE = 'styles.css';
+            const CLEAN_STYLE = 'secondstyle.css';
 
-        function setBasicStyle(enabled) {
-            if (enabled) {
-                if (!document.getElementById(BASIC_STYLE_ID)) {
-                    const style = document.createElement('style');
-                    style.id = BASIC_STYLE_ID;
-                    style.textContent = BASIC_CSS;
-                    document.head.appendChild(style);
+            function setStyle(isClean) {
+                mainStyleSheet.setAttribute('href', isClean ? CLEAN_STYLE : RETRO_STYLE);
+                const welcomePopup = document.getElementById('welcomePopup');
+                if (welcomePopup) {
+                    if (isClean) {
+                        welcomePopup.style.background = '#fff';
+                        welcomePopup.style.border = '2px solid #000';
+                        welcomePopup.style.borderRadius = '12px';
+                        welcomePopup.style.boxShadow = '0 2px 8px #e0e0e0';
+                        welcomePopup.style.color = '#222';
+                        welcomePopup.style.animation = 'none';
+                    } else {
+                        welcomePopup.style.background = '';
+                        welcomePopup.style.border = '';
+                        welcomePopup.style.borderRadius = '';
+                        welcomePopup.style.boxShadow = '';
+                        welcomePopup.style.color = '';
+                        welcomePopup.style.animation = '';
+                    }
                 }
-                if (styleSheet) styleSheet.disabled = true;
-            } else {
-                const style = document.getElementById(BASIC_STYLE_ID);
-                if (style) style.remove();
-                if (styleSheet) styleSheet.disabled = false;
             }
-        }
 
-        function updateButtonText(isBasic) {
-            changeStylesBtn.textContent = isBasic ? 'Restore Retro Styles' : 'Change Styles';
-        }
+            function updateButtonText(isClean) {
+                changeStylesBtn.textContent = isClean ? 'Restore Retro Styles' : 'Change Styles';
+            }
 
-        function checkAndApplyStyle() {
-            const isBasic = localStorage.getItem('basicStyleEnabled') === 'true';
-            setBasicStyle(isBasic);
-            updateButtonText(isBasic);
-        }
+            function checkAndApplyStyle() {
+                const isClean = localStorage.getItem('cleanStyleEnabled') === 'true';
+                setStyle(isClean);
+                updateButtonText(isClean);
+            }
 
-        changeStylesBtn.addEventListener('click', function() {
-            const isBasic = localStorage.getItem('basicStyleEnabled') === 'true';
-            localStorage.setItem('basicStyleEnabled', (!isBasic).toString());
+            changeStylesBtn.addEventListener('click', function() {
+                const isClean = localStorage.getItem('cleanStyleEnabled') === 'true';
+                localStorage.setItem('cleanStyleEnabled', (!isClean).toString());
+                checkAndApplyStyle();
+            });
+
             checkAndApplyStyle();
-        });
-
-        checkAndApplyStyle();
     const buddyTips = [
             "Did you know? I've won 4 hackathons! Pretty cool, right {name}?",
             "Hey {name}, check out my portfolio page - I built some awesome stuff!",
